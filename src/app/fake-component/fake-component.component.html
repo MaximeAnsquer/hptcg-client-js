@@ -1,0 +1,17 @@
+<p>
+  fake-component works!
+</p>
+
+<ul>
+  <li *ngFor="let message of messagesReceived">
+    {{message}}
+  </li>
+</ul>
+
+<form (ngSubmit)="sendMessage()">
+  <div>
+    <label for="message">Message</label>
+    <input type="text" id="message" name="message" required [(ngModel)]="messageToSend">
+  </div>
+  <button type="submit">Submit</button>
+</form>
