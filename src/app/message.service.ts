@@ -6,14 +6,17 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class MessageService {
 
-  public messages: Subject<string> = new Subject<string>();
+  public messages: Subject<any> = new Subject<any>();
 
   constructor(private wsService: WebSocketService) {
 
-    this.messages = <Subject<string>> this.wsService
-      // .connect('ws://localhost:5000')
-      .connect('ws://hptcg-server.herokuapp.com')
-      .map((response: MessageEvent): string => JSON.parse(response.data));
+    this.messages = <Subject<any>> this.wsService
+      .connect('ws://localhost:5000')
+      // .connect('ws://hptcg-server.herokuapp.com')
+      .map((response: MessageEvent): any => {
+        console.log("MessageService - response.data: " + response.data);
+        return JSON.parse(response.data);
+      });
 
   }
 

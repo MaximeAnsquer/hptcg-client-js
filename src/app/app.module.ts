@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import {WebSocketService} from './web-socket.service';
 import { FakeComponentComponent } from './fake-component/fake-component.component';
 import {MessageService} from './message.service';
+import { GameListComponent } from './game-list/game-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FakeComponentComponent
+    FakeComponentComponent,
+    GameListComponent
   ],
   imports: [
     BrowserModule,

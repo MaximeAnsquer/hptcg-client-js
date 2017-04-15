@@ -20,7 +20,7 @@ export class FakeComponentComponent {
   }
 
   sendMessage() {
-    this.messageService.messages.next(JSON.stringify({type : this.messageToSend, id : 1}));
+    this.messageService.messages.next({type : this.messageToSend, id : 1});
   }
 
 }
