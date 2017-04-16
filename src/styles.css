@@ -1,5 +1,18 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 .fitted {
-  display: inline-block;
+  display: inline-block !important;
+}
+
+.centered {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5%;
+}
+
+#settings-button {
+  position: absolute;
+  right: 50px;
+  top: 40px;
 }

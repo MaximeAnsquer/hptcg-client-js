@@ -1,18 +1,14 @@
-.mat-card {
-  display: inline-block;
-  /*position: absolute;*/
-  /*left: 50%;*/
-  /*transform: translateX(-50%);*/
-  /*margin-top: 5%;*/
+.join-button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
 }
 
-[md-card] {
-  display: inline-block;
+.player-name {
+  margin-right: 30px;
 }
 
-
-.game-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+.game-list {
+  width: 60%;
 }

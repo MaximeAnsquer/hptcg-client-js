@@ -10,28 +10,34 @@ import { FakeComponentComponent } from './fake-component/fake-component.componen
 import {MessageService} from './shared/services/message.service';
 import { GameListComponent } from './game-list/game-list.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MaterialModule} from "@angular/material";
+import {MaterialModule, MdButton, MdDialog} from "@angular/material";
 import {UsernameService} from "./shared/services/username.service";
 import { UsernameFormComponent } from './username-form/username-form.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FakeComponentComponent,
     GameListComponent,
-    UsernameFormComponent
+    UsernameFormComponent,
+    SettingsComponent
+  ],
+  entryComponents: [
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [
     WebSocketService,
     MessageService,
-    UsernameService
+    UsernameService,
+    MdDialog
   ],
   bootstrap: [AppComponent]
 })

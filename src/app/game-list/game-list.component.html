@@ -1,4 +1,4 @@
-<md-card class="game-list">
+<md-card class="centered game-list">
   <md-card-header>
     <md-card-title>Game list</md-card-title>
     <md-card-subtitle>Waiting for an opponent</md-card-subtitle>
@@ -6,11 +6,8 @@
   <md-card-content>
     <md-list>
       <md-list-item *ngFor="let game of games">
-        <div class="game-row">
-          <p>Game ID : {{game.id}}</p>
-          <p>Player : {{game.player1}}</p>
-          <button md-button>Join</button>
-        </div>
+        <p class="player-name">{{game.player1}}</p>
+        <button md-button class="join-button">Join</button>
       </md-list-item>
     </md-list>
   </md-card-content>

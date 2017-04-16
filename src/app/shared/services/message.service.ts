@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {WebSocketService} from './web-socket.service';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
-import {setInterval} from "timers";
 
 @Injectable()
 export class MessageService {
