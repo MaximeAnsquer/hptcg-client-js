@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MessageService} from '../message.service';
+import {MessageService} from '../shared/services/message.service';
 
 @Component({
   selector: 'app-fake-component',

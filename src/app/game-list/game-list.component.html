@@ -1,7 +1,22 @@
-<ul>
-  <li *ngFor="let game of games">
-    Game ID : {{game.id}}
-  </li>
-</ul>
+<md-card class="game-list">
+  <md-card-header>
+    <md-card-title>Game list</md-card-title>
+    <md-card-subtitle>Waiting for an opponent</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <md-list>
+      <md-list-item *ngFor="let game of games">
+        <div class="game-row">
+          <p>Game ID : {{game.id}}</p>
+          <p>Player : {{game.player1}}</p>
+          <button md-button>Join</button>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button (click)="createGame()">Create game</button>
+  </md-card-actions>
+</md-card>
 
-<button (click)="createGame()">Create game</button>
+
