@@ -1,13 +1,11 @@
 export class Game {
 
   id: number;
-  player1: string;
-  player2: string;
+  username: string;
 
-  constructor(id: number, player1: string, player2: string) {
+  constructor(id: number, username: string) {
     this.id = id;
-    this.player1 = player1;
-    this.player2 = player2;
+    this.username = username;
   }
 
 }

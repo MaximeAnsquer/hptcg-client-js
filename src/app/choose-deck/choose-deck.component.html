@@ -1,0 +1,7 @@
+<md-select placeholder="Your deck">
+  <md-option *ngFor="let deck of decks" [value]="deck">
+    {{ deck.name }}
+  </md-option>
+</md-select>
+
+<button md-button (click)="validateGame()" md-dialog-close>Ok</button>

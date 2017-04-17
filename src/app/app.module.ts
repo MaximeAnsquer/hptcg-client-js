@@ -10,10 +10,13 @@ import { FakeComponentComponent } from './fake-component/fake-component.componen
 import {MessageService} from './shared/services/message.service';
 import { GameListComponent } from './game-list/game-list.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MaterialModule, MdButton, MdDialog} from "@angular/material";
+import {MaterialModule, MdDialog} from "@angular/material";
 import {UsernameService} from "./shared/services/username.service";
 import { UsernameFormComponent } from './username-form/username-form.component';
 import { SettingsComponent } from './settings/settings.component';
+import { GameComponent } from './game/game.component';
+import {AppRoutingModule} from "./app-routing/app-routing.module";
+import { ChooseDeckComponent } from './choose-deck/choose-deck.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +24,13 @@ import { SettingsComponent } from './settings/settings.component';
     FakeComponentComponent,
     GameListComponent,
     UsernameFormComponent,
-    SettingsComponent
+    SettingsComponent,
+    GameComponent,
+    ChooseDeckComponent
   ],
   entryComponents: [
-    SettingsComponent
+    SettingsComponent,
+    ChooseDeckComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +38,7 @@ import { SettingsComponent } from './settings/settings.component';
     HttpModule,
     BrowserAnimationsModule,
     MaterialModule,
+    AppRoutingModule
   ],
   providers: [
     WebSocketService,

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {MessageService} from "../shared/services/message.service";
 import {Game} from "../shared/model/game";
 import {UsernameService} from "../shared/services/username.service";
+import {MdDialog} from "@angular/material";
+import {ChooseDeckComponent} from "../choose-deck/choose-deck.component";
 
 @Component({
   selector: 'app-game-list',
@@ -11,10 +13,12 @@ import {UsernameService} from "../shared/services/username.service";
 export class GameListComponent implements OnInit {
 
   games: Game[] = [];
+  yourGameId: number;
 
   constructor(
     private messageService: MessageService,
-    private usernameService: UsernameService) {}
+    private usernameService: UsernameService,
+    private dialog: MdDialog) {}
 
   ngOnInit() {
     this.messageService.messages.subscribe(message => {
@@ -24,6 +28,9 @@ export class GameListComponent implements OnInit {
           break;
         case 'add-game':
           this.games.push(message['value']);
+          break;
+        case 'game-id':
+          this.yourGameId = message['value'];
           break;
         default:
           break;
@@ -36,6 +43,16 @@ export class GameListComponent implements OnInit {
       type : 'create-game',
       username: this.usernameService.getUsername()
     });
+  }
+
+  isOwnGame(id: number) {
+    return id === this.yourGameId;
+  }
+
+  joinGame(id: number) {
+    this.dialog.open(ChooseDeckComponent, {data: {
+      id: id
+    }});
   }
 
 }

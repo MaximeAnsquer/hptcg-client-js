@@ -6,8 +6,10 @@
   <md-card-content>
     <md-list>
       <md-list-item *ngFor="let game of games">
-        <p class="player-name">{{game.player1}}</p>
-        <button md-button class="join-button">Join</button>
+        <p class="player-name">{{game.username}}</p>
+        <button [disabled]="isOwnGame(game.id)"
+                md-button class="join-button"
+                (click)="joinGame(game.id)">Join</button>
       </md-list-item>
     </md-list>
   </md-card-content>

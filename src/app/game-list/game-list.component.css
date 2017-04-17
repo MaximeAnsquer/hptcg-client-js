@@ -1,14 +1,8 @@
-.join-button {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  top: 0;
+.game-list {
+  /*width: 40%;*/
+  display: inline-block;
 }
 
 .player-name {
-  margin-right: 30px;
-}
-
-.game-list {
-  width: 60%;
+  width: 90%;
 }
