@@ -17,6 +17,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { GameComponent } from './game/game.component';
 import {AppRoutingModule} from "./app-routing/app-routing.module";
 import { ChooseDeckComponent } from './choose-deck/choose-deck.component';
+import { AuthenticatedComponent } from './authenticated/authenticated.component';
+import {UsernameGuard} from "./username.guard";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { ChooseDeckComponent } from './choose-deck/choose-deck.component';
     UsernameFormComponent,
     SettingsComponent,
     GameComponent,
-    ChooseDeckComponent
+    ChooseDeckComponent,
+    AuthenticatedComponent
   ],
   entryComponents: [
     SettingsComponent,
@@ -44,7 +47,8 @@ import { ChooseDeckComponent } from './choose-deck/choose-deck.component';
     WebSocketService,
     MessageService,
     UsernameService,
-    MdDialog
+    MdDialog,
+    UsernameGuard
   ],
   bootstrap: [AppComponent]
 })

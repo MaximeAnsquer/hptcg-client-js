@@ -9,12 +9,12 @@
         <p class="player-name">{{game.username}}</p>
         <button [disabled]="isOwnGame(game.id)"
                 md-button class="join-button"
-                (click)="joinGame(game.id)">Join</button>
+                (click)="chooseDeckForJoiningGame(game.id)">Join</button>
       </md-list-item>
     </md-list>
   </md-card-content>
   <md-card-actions>
-    <button md-button (click)="createGame()">Create game</button>
+    <button md-button (click)="chooseDeckForCreatingGame()">Create game</button>
   </md-card-actions>
 </md-card>
 

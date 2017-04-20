@@ -12,19 +12,17 @@ export class AppComponent implements OnInit {
 
   username: string;
 
-  constructor(private usernameService: UsernameService,
-  private dialog: MdDialog) {}
+  constructor(private usernameService: UsernameService) {}
 
   ngOnInit() {
     this.username = this.usernameService.getUsername();
     this.usernameService.username.subscribe(u => {
       this.username = u;
+      console.log('username.subscribe: ' + u);
     });
   }
 
-  openSettings() {
-    this.dialog.open(SettingsComponent);
-  }
+
 
 
 }

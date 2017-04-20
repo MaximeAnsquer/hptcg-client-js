@@ -4,6 +4,7 @@ import {Game} from "../shared/model/game";
 import {UsernameService} from "../shared/services/username.service";
 import {MdDialog} from "@angular/material";
 import {ChooseDeckComponent} from "../choose-deck/choose-deck.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-game-list',
@@ -18,7 +19,8 @@ export class GameListComponent implements OnInit {
   constructor(
     private messageService: MessageService,
     private usernameService: UsernameService,
-    private dialog: MdDialog) {}
+    private dialog: MdDialog,
+    private router: Router) {}
 
   ngOnInit() {
     this.messageService.messages.subscribe(message => {
@@ -32,26 +34,29 @@ export class GameListComponent implements OnInit {
         case 'game-id':
           this.yourGameId = message['value'];
           break;
+        case 'game-joined':
+          this.router.navigate(['/game']);
+          break;
         default:
           break;
       }
     });
   }
 
-  createGame() {
-    this.messageService.messages.next({
-      type : 'create-game',
-      username: this.usernameService.getUsername()
-    });
+  chooseDeckForCreatingGame() {
+    this.dialog.open(ChooseDeckComponent, {data: {
+      action: 'creating-game'
+    }});
   }
 
   isOwnGame(id: number) {
     return id === this.yourGameId;
   }
 
-  joinGame(id: number) {
+  chooseDeckForJoiningGame(id: number) {
     this.dialog.open(ChooseDeckComponent, {data: {
-      id: id
+      id: id,
+      action: 'joining-game'
     }});
   }
 

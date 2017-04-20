@@ -1,7 +1,12 @@
-<md-select placeholder="Your deck">
-  <md-option *ngFor="let deck of decks" [value]="deck">
+<md-select placeholder="Your deck" [(ngModel)]="chosenDeck">
+  <md-option *ngFor="let deck of availableDecks" [value]="deck">
     {{ deck.name }}
   </md-option>
 </md-select>
 
-<button md-button (click)="validateGame()" md-dialog-close>Ok</button>
+<button md-button
+        [disabled]="!chosenDeck"
+        (click)="validateDeck()"
+        md-dialog-close>
+  Ok
+</button>
