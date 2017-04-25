@@ -20,7 +20,6 @@ export class ChooseDeckComponent implements OnInit {
   constructor(
     private router: Router,
     private usernameService: UsernameService,
-    private dialogRef: MdDialogRef<ChooseDeckComponent>,
     @Inject(MD_DIALOG_DATA) private data: any,
     private messageService: MessageService) {
     if (data) {

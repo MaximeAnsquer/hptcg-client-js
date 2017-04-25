@@ -1,3 +1,53 @@
-<p>
-  game works!
-</p>
+<md-grid-list cols="16">
+  <md-grid-tile>1</md-grid-tile>
+  <md-grid-tile>2</md-grid-tile>
+  <md-grid-tile [colspan]="12">
+    <div *ngFor="let c of board.you.cardsInPlay">
+      {{c.imagePath}}
+    </div>
+  </md-grid-tile>
+  <md-grid-tile>4</md-grid-tile>
+  <md-grid-tile>5</md-grid-tile>
+  <md-grid-tile>6</md-grid-tile>
+  <md-grid-tile>7</md-grid-tile>
+  <md-grid-tile [colspan]="12">
+    <div *ngFor="let c of board.you.hand"
+    (click)="c.play()">
+      {{c.imagePath}}
+    </div>
+  </md-grid-tile>
+  <md-grid-tile>9</md-grid-tile>
+  <md-grid-tile>10</md-grid-tile>
+  <md-grid-tile>11</md-grid-tile>
+  <md-grid-tile>12</md-grid-tile>
+  <md-grid-tile>13</md-grid-tile>
+  <md-grid-tile>14</md-grid-tile>
+  <md-grid-tile>15</md-grid-tile>
+  <md-grid-tile>16</md-grid-tile>
+  <md-grid-tile>17</md-grid-tile>
+  <md-grid-tile>18</md-grid-tile>
+  <md-grid-tile>19</md-grid-tile>
+  <md-grid-tile>20</md-grid-tile>
+  <md-grid-tile>21</md-grid-tile>
+
+</md-grid-list>
+<!--<div id="opponent-side">-->
+
+<!--</div>-->
+
+<!--<div id="player-side">-->
+
+<!--</div>-->
+
+
+
+
+
+
+<!--<md-grid-tile-->
+<!--*ngFor="let tile of tiles"-->
+<!--[colspan]="tile.cols"-->
+<!--[rowspan]="tile.rows"-->
+<!--[style.background]="tile.color">-->
+<!--{{tile.text}}-->
+<!--</md-grid-tile>-->
