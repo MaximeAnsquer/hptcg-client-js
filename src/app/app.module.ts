@@ -19,6 +19,7 @@ import {AppRoutingModule} from "./app-routing/app-routing.module";
 import { ChooseDeckComponent } from './choose-deck/choose-deck.component';
 import { AuthenticatedComponent } from './authenticated/authenticated.component';
 import {UsernameGuard} from "./username.guard";
+import {CardFactoryService} from "./card-factory.service";
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {UsernameGuard} from "./username.guard";
     MessageService,
     UsernameService,
     MdDialog,
-    UsernameGuard
+    UsernameGuard,
+    CardFactoryService
   ],
   bootstrap: [AppComponent]
 })

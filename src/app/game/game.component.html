@@ -2,8 +2,8 @@
   <md-grid-tile>1</md-grid-tile>
   <md-grid-tile>2</md-grid-tile>
   <md-grid-tile [colspan]="12">
-    <div class="card lessonInPlay" *ngFor="let c of board.opponent.lessonsInPlay">
-      <img src="{{c.imagePath}}" (click)="c.play()">
+    <div class="card" *ngFor="let c of board.opponent.hand">
+      <img src="{{c.imagePath}}">
     </div>
   </md-grid-tile>
   <md-grid-tile>4</md-grid-tile>
@@ -11,7 +11,9 @@
   <md-grid-tile>6</md-grid-tile>
   <md-grid-tile>7</md-grid-tile>
   <md-grid-tile [colspan]="12">
-
+    <div class="card lessonInPlay" *ngFor="let c of board.opponent.lessonsInPlay">
+      <img src="{{c.imagePath}}">
+    </div>
   </md-grid-tile>
   <md-grid-tile>9</md-grid-tile>
   <md-grid-tile>10</md-grid-tile>
@@ -19,7 +21,7 @@
   <md-grid-tile>12</md-grid-tile>
   <md-grid-tile [colspan]="12">
     <div class="card lessonInPlay" *ngFor="let c of board.you.lessonsInPlay">
-      <img src="{{c.imagePath}}" (click)="c.play()">
+      <img src="{{c.imagePath}}">
     </div>
   </md-grid-tile>
   <md-grid-tile>14</md-grid-tile>
@@ -36,23 +38,3 @@
   <md-grid-tile>21</md-grid-tile>
 
 </md-grid-list>
-<!--<div id="opponent-side">-->
-
-<!--</div>-->
-
-<!--<div id="player-side">-->
-
-<!--</div>-->
-
-
-
-
-
-
-<!--<md-grid-tile-->
-<!--*ngFor="let tile of tiles"-->
-<!--[colspan]="tile.cols"-->
-<!--[rowspan]="tile.rows"-->
-<!--[style.background]="tile.color">-->
-<!--{{tile.text}}-->
-<!--</md-grid-tile>-->
