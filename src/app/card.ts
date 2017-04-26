@@ -7,7 +7,7 @@ export abstract class Card {
 
   constructor(board: Board) {
     this.board = board;
-    this.imagePath = this.constructor.name;
+    this.imagePath = "assets/images/" + this.constructor.name + ".jpg";
   }
 
   play() {

@@ -8,7 +8,7 @@ export abstract class Lesson extends Card {
 
   play() {
     this.board.you.hand = this.board.you.hand.filter(c => c !== this);
-    this.board.you.cardsInPlay.push(this);
+    this.board.you.lessonsInPlay.add(this);
   }
 
 

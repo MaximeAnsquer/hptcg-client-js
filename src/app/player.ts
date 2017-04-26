@@ -1,10 +1,12 @@
 import {Card} from "./card";
 import {Charms} from "./charms";
 import {Board} from "./board";
+import {Lesson} from "app/lesson";
 export class Player {
 
   hand: Card[];
-  cardsInPlay: Card[];
+  lessonsInPlay: Set<Lesson> = new Set();
+  cardsInPlay: Card[] = [];
   board: Board;
 
   constructor(board: Board) {
@@ -18,8 +20,15 @@ export class Player {
       new Charms(board),
       new Charms(board),
       new Charms(board),
+      new Charms(board),
+      new Charms(board),
+      new Charms(board),
+      new Charms(board),
+      new Charms(board),
+      new Charms(board),
+      new Charms(board),
+      new Charms(board),
     ];
-    this.cardsInPlay = [];
   }
 
 }
