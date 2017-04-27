@@ -1,7 +1,8 @@
 import {Injectable, Injector} from '@angular/core';
 import {Board} from "./board";
 import {Card} from "./card";
-import {Charms} from "./charms";
+import {Charms} from "./shared/model/cards/charms";
+import {Transfiguration} from "./shared/model/cards/transfiguration";
 
 @Injectable()
 export class CardFactoryService {
@@ -12,6 +13,8 @@ export class CardFactoryService {
     switch (cardName) {
       case 'Charms':
         return new Charms(board, cardId, this.injector);
+      case 'Transfiguration':
+        return new Transfiguration(board, cardId, this.injector);
       default:
         break;
     }

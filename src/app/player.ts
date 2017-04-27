@@ -1,6 +1,6 @@
 import {Card} from "./card";
 import {Board} from "./board";
-import {Lesson} from "app/lesson";
+import {Lesson} from "app/shared/model/cards/lesson";
 export class Player {
 
   lessonsInPlay: Set<Lesson> = new Set();

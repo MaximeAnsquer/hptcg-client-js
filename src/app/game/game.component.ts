@@ -30,12 +30,11 @@ export class GameComponent implements OnInit {
       case 'opponent-draws':
         this.opponentDraws(message);
         break;
-      case 'opponent-plays':
+      case 'opponent-plays-card-from-hand':
         this.opponentPlays(message);
         break;
       default:
         break;
-
     }
   }
 

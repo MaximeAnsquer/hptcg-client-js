@@ -15,11 +15,12 @@ export abstract class Card {
     this.id = id;
     this.board = board;
     this.imagePath = "assets/images/" + this.constructor.name + ".jpg";
+    this.name = this.constructor.name;
   }
 
   play() {
     this.messageService.messages.next({
-      type: 'play-card',
+      type: 'play-card-from-hand',
       cardName: this.name,
       cardId: this.id
     });

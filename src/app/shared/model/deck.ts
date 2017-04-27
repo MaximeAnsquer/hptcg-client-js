@@ -10,7 +10,7 @@ export class Deck {
         this.cards = ['Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms'];
         break;
       case "Draco's deck":
-        this.cards = ['Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms'];
+        this.cards = ['Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration'];
         break;
       default:
         break;

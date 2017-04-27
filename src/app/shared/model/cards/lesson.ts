@@ -1,6 +1,6 @@
-import {Card} from "./card";
-import {Board} from "./board";
-import {MessageService} from "./shared/services/message.service";
+import {Card} from "../../../card";
+import {Board} from "../../../board";
+import {MessageService} from "../../services/message.service";
 import {Injector} from "@angular/core";
 export abstract class Lesson extends Card {
 
