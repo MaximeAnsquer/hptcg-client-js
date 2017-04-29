@@ -3,7 +3,7 @@ import {Board} from "./board";
 import {Lesson} from "app/shared/model/cards/lesson";
 export class Player {
 
-  lessonsInPlay: Set<Lesson> = new Set();
+  lessonsInPlay: Lesson[] = [];
   hand: Card[] = [];
   cardsInPlay: Card[] = [];
   board: Board;

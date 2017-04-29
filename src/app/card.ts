@@ -1,12 +1,15 @@
 import {MessageService} from "./shared/services/message.service";
 import {Injector} from "@angular/core";
 import {Player} from "./player";
+import {LessonType} from "./shared/model/lesson-type";
 export abstract class Card {
 
   player: Player;
   id: number;
   name: string;
   imagePath: string;
+  lessonType: LessonType;
+  cost: number;
 
   protected messageService: MessageService;
 
@@ -18,7 +21,7 @@ export abstract class Card {
     this.name = this.constructor.name;
   }
 
-  play() {
+  play(): void {
     this.messageService.messages.next({
       type: 'play-card-from-hand',
       cardName: this.name,
@@ -29,4 +32,25 @@ export abstract class Card {
   opponentPlays() {
 
   }
+
+  lessonConditionOk(): boolean {
+    if (this.lessonType) {
+      let lessonTypeOk = this.player.lessonsInPlay
+        .some(l => l.lessonType === this.lessonType);
+      let costOk = this.player.lessonsInPlay.length >= this.cost;
+      return lessonTypeOk && costOk;
+    }
+    return true;
+  }
+
+  canBePlayed(): boolean {
+    return this.lessonConditionOk();
+  }
+
+  clickInHand(): void {
+    if (this.canBePlayed) {
+      this.play();
+    }
+  }
+
 }

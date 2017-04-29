@@ -30,7 +30,7 @@
   <md-grid-tile>17</md-grid-tile>
   <md-grid-tile [colspan]="12">
     <div class="card" *ngFor="let c of board.you.hand">
-      <img src="{{c.imagePath}}" (click)="c.play()">
+      <img src="{{c.imagePath}}" (click)="c.clickInHand()">
     </div>
   </md-grid-tile>
   <md-grid-tile>19</md-grid-tile>
