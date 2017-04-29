@@ -7,6 +7,7 @@ export class Player {
   hand: Card[] = [];
   cardsInPlay: Card[] = [];
   board: Board;
+  opponent: Player;
 
   constructor(board: Board) {
     this.board = board;

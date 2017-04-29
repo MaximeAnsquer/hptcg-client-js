@@ -19,7 +19,6 @@ export class MessageService {
       });
 
     window.setInterval(() => {
-      console.log('sending ping to server');
       this.messages.next({type: 'ping'});
     }, 10*1000);
   }

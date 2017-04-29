@@ -1,19 +1,19 @@
-import {Board} from "./board";
 import {MessageService} from "./shared/services/message.service";
 import {Injector} from "@angular/core";
+import {Player} from "./player";
 export abstract class Card {
 
-  board: Board;
+  player: Player;
   id: number;
   name: string;
   imagePath: string;
 
   protected messageService: MessageService;
 
-  constructor(board: Board, id: number, injector: Injector) {
+  constructor(player: Player, id: number, injector: Injector) {
     this.messageService = injector.get(MessageService);
     this.id = id;
-    this.board = board;
+    this.player = player;
     this.imagePath = "assets/images/" + this.constructor.name + ".jpg";
     this.name = this.constructor.name;
   }
@@ -29,5 +29,4 @@ export abstract class Card {
   opponentPlays() {
 
   }
-
 }

@@ -7,6 +7,8 @@ export class Board {
   constructor() {
     this.you = new Player(this);
     this.opponent = new Player(this);
+
+    this.you.opponent = this.opponent;
   }
 
 }
