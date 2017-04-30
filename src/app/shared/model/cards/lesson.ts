@@ -12,18 +12,7 @@ export abstract class Lesson extends Card {
     super(player, id, injector);
   }
 
-  play() {
-    super.play();
-    this.playEffect();
-  }
-
-  opponentPlays() {
-    super.opponentPlays();
-    this.playEffect();
-  }
-
   playEffect() {
-    this.player.hand = this.player.hand.filter(c => c !== this);
     this.player.lessonsInPlay.push(this);
   }
 

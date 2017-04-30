@@ -7,10 +7,10 @@ export class Deck {
     this.name = name;
     switch(name) {
       case "Hermione's deck":
-        this.cards = ['Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms'];
+        this.cards = ['Epoximise', 'Epoximise', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration'];
         break;
       case "Draco's deck":
-        this.cards = ['Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration'];
+        this.cards = ['Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms'];
         break;
       default:
         break;

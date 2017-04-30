@@ -9,6 +9,7 @@ export class Board {
     this.opponent = new Player(this);
 
     this.you.opponent = this.opponent;
+    this.opponent.opponent = this.you;
   }
 
 }

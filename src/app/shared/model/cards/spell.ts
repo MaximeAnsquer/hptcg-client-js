@@ -7,12 +7,18 @@ export class Spell extends Card {
 
   constructor(player: Player, id: number, injector: Injector, lessonType: LessonType, cost: number) {
     super(player, id, injector);
+    this.lessonType = lessonType;
+    this.cost = cost;
   }
 
 
-
-
   play(): void {
+    this.player.discardPile.push(this);
     super.play();
+  }
+
+  opponentPlays(): any {
+    this.player.discardPile.push(this);
+    super.opponentPlays();
   }
 }

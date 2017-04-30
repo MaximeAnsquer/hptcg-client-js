@@ -27,14 +27,17 @@ export abstract class Card {
       cardName: this.name,
       cardId: this.id
     });
+    this.player.hand = this.player.hand.filter(c => c !== this);
+    this.playEffect();
   }
 
-  opponentPlays() {
-
+  opponentPlays(): void {
+    this.player.hand = this.player.hand.filter(c => c !== this);
+    this.playEffect();
   }
 
   lessonConditionOk(): boolean {
-    if (this.lessonType) {
+    if (this.cost) {
       let lessonTypeOk = this.player.lessonsInPlay
         .some(l => l.lessonType === this.lessonType);
       let costOk = this.player.lessonsInPlay.length >= this.cost;
@@ -48,9 +51,13 @@ export abstract class Card {
   }
 
   clickInHand(): void {
-    if (this.canBePlayed) {
+    if (this.canBePlayed()) {
       this.play();
     }
+  }
+
+  playEffect() {
+
   }
 
 }

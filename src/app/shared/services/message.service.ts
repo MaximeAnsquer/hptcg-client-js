@@ -14,7 +14,7 @@ export class MessageService {
     this.messages = <Subject<any>> this.wsService
       .connect(serverUrl)
       .map((response: MessageEvent): any => {
-        console.log("Received: " + response.data);
+        // console.log("Received: " + response.data);
         return JSON.parse(response.data);
       });
 

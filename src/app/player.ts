@@ -8,9 +8,11 @@ export class Player {
   cardsInPlay: Card[] = [];
   board: Board;
   opponent: Player;
+  discardPile: Card[] = [];
 
   constructor(board: Board) {
     this.board = board;
+    this.opponent = board.opponent;
   }
 
 }
