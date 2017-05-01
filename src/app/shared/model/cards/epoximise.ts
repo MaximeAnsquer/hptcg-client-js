@@ -18,7 +18,7 @@ export class Epoximise extends Spell {
   playEffect() {
     let charmsToRemove = this.player.opponent.lessonsInPlay
       .find(l => l.lessonType === LessonType.Charms);
-    this.player.opponent.discardPile.push(charmsToRemove);
+    this.player.opponent.discardPile.add(charmsToRemove);
     this.player.opponent.lessonsInPlay = this.player.opponent.lessonsInPlay
       .filter(l => l !== charmsToRemove);
   }

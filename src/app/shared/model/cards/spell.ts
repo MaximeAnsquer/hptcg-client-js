@@ -13,12 +13,12 @@ export class Spell extends Card {
 
 
   play(): void {
-    this.player.discardPile.push(this);
+    this.player.discardPile.add(this);
     super.play();
   }
 
   opponentPlays(): any {
-    this.player.discardPile.push(this);
+    this.player.discardPile.add(this);
     super.opponentPlays();
   }
 }
