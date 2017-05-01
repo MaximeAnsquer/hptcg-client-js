@@ -9,7 +9,7 @@
       <img class="card" src="assets/images/cardback.jpg">
     </md-grid-tile>
     <md-grid-tile [colspan]="12">
-      <div *ngFor="let c of board.opponent.hand">
+      <div class="lessonInPlay" *ngFor="let c of board.opponent.lessonsInPlay">
         <img class="card" src="{{c.imagePath}}">
       </div>
     </md-grid-tile>
@@ -18,7 +18,7 @@
     <md-grid-tile>6</md-grid-tile>
     <md-grid-tile>7</md-grid-tile>
     <md-grid-tile [colspan]="12">
-      <div class="lessonInPlay" *ngFor="let c of board.opponent.lessonsInPlay">
+      <div class="cardsInPlay" *ngFor="let c of board.opponent.cardsInPlay">
         <img class="card" src="{{c.imagePath}}">
       </div>
     </md-grid-tile>
@@ -27,12 +27,25 @@
     <md-grid-tile>11</md-grid-tile>
     <md-grid-tile>12</md-grid-tile>
     <md-grid-tile [colspan]="12">
-      <div class="lessonInPlay" *ngFor="let c of board.you.lessonsInPlay">
+      <div class="cardsInPlay" *ngFor="let c of board.you.cardsInPlay">
         <img class="card" src="{{c.imagePath}}">
       </div>
     </md-grid-tile>
     <md-grid-tile>14</md-grid-tile>
     <md-grid-tile>15</md-grid-tile>
+    <md-grid-tile>
+
+    </md-grid-tile>
+    <md-grid-tile>
+
+    </md-grid-tile>
+    <md-grid-tile [colspan]="12">
+      <div class="lessonInPlay" *ngFor="let c of board.you.lessonsInPlay">
+        <img class="card" src="{{c.imagePath}}">
+      </div>
+    </md-grid-tile>
+    <md-grid-tile>19</md-grid-tile>
+    <md-grid-tile>20</md-grid-tile>
     <md-grid-tile>
       <img class="card"
            *ngIf="this.you.topDiscardPile"
@@ -44,13 +57,12 @@
     <md-grid-tile [colspan]="12">
       <div *ngFor="let c of board.you.hand">
         <div class="tooltip">
-        <img class="card" src="{{c.imagePath}}" (click)="c.clickInHand()">
+          <img class="card" src="{{c.imagePath}}" (click)="c.clickInHand()">
         </div>
       </div>
     </md-grid-tile>
-    <md-grid-tile>19</md-grid-tile>
-    <md-grid-tile>20</md-grid-tile>
-    <md-grid-tile>21</md-grid-tile>
+    <md-grid-tile>24</md-grid-tile>
+    <md-grid-tile>25</md-grid-tile>
 
   </md-grid-list>
 </div>

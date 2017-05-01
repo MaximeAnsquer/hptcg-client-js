@@ -11,7 +11,6 @@ export class Spell extends Card {
     this.cost = cost;
   }
 
-
   play(): void {
     this.player.discardPile.add(this);
     super.play();
@@ -21,4 +20,5 @@ export class Spell extends Card {
     this.player.discardPile.add(this);
     super.opponentPlays();
   }
+
 }

@@ -14,6 +14,10 @@ export class Deck {
           'CareOfMagicalCreatures', 'CareOfMagicalCreatures', 'CareOfMagicalCreatures', 'CareOfMagicalCreatures',
           'CareOfMagicalCreatures', 'CareOfMagicalCreatures', 'CareOfMagicalCreatures', 'CareOfMagicalCreatures',
           'Epoximise', 'Epoximise',
+          'Avifors', 'Avifors',
+          'CuriousRaven', 'CuriousRaven', 'CuriousRaven', 'CuriousRaven',
+          'ForestTroll', 'ForestTroll', 'ForestTroll',
+          'ViciousWolf', 'ViciousWolf', 'ViciousWolf',
         ];
         break;
       case "Draco's deck":
