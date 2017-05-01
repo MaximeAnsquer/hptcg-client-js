@@ -5,6 +5,7 @@ import {Charms} from "./shared/model/cards/charms";
 import {Transfiguration} from "./shared/model/cards/transfiguration";
 import {Player} from "./player";
 import {Epoximise} from "./shared/model/cards/epoximise";
+import {CareOfMagicalCreatures} from "./shared/model/cards/care-of-magical-creatures";
 
 @Injectable()
 export class CardFactoryService {
@@ -19,6 +20,8 @@ export class CardFactoryService {
         return new Transfiguration(player, cardId, this.injector);
       case 'Epoximise':
         return new Epoximise(player, cardId, this.injector);
+      case 'CareOfMagicalCreatures':
+        return new CareOfMagicalCreatures(player, cardId, this.injector);
       default:
         break;
     }

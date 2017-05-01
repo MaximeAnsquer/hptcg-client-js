@@ -7,10 +7,24 @@ export class Deck {
     this.name = name;
     switch(name) {
       case "Hermione's deck":
-        this.cards = ['Epoximise', 'Epoximise', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration'];
+        this.cards = [
+          'Transfiguration', 'Transfiguration', 'Transfiguration', 'Transfiguration',
+          'Transfiguration', 'Transfiguration', 'Transfiguration',
+          'CareOfMagicalCreatures', 'CareOfMagicalCreatures', 'CareOfMagicalCreatures', 'CareOfMagicalCreatures',
+          'CareOfMagicalCreatures', 'CareOfMagicalCreatures', 'CareOfMagicalCreatures', 'CareOfMagicalCreatures',
+          'CareOfMagicalCreatures', 'CareOfMagicalCreatures', 'CareOfMagicalCreatures', 'CareOfMagicalCreatures',
+          'Epoximise', 'Epoximise',
+        ];
         break;
       case "Draco's deck":
-        this.cards = ['Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms', 'Charms'];
+        this.cards = [
+          'Charms', 'Charms', 'Charms', 'Charms',
+          'Charms', 'Charms', 'Charms', 'Charms',
+          'Charms',
+          'CareOfMagicalCreatures', 'CareOfMagicalCreatures', 'CareOfMagicalCreatures', 'CareOfMagicalCreatures',
+          'CareOfMagicalCreatures', 'CareOfMagicalCreatures', 'CareOfMagicalCreatures', 'CareOfMagicalCreatures',
+          'CareOfMagicalCreatures', 'CareOfMagicalCreatures'
+        ];
         break;
       default:
         break;

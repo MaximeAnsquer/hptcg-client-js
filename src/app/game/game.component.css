@@ -7,10 +7,10 @@ div {
   width: auto;
 }
 
-img {
+.card {
   display: block;
-  max-width:230px;
-  max-height:95px;
+  max-width:150px;
+  max-height:150px;
   width: auto;
   height: auto;
 }
@@ -35,6 +35,14 @@ img {
 
 * {
   box-sizing: border-box;
+}
+
+#content {
+  background: url("../../assets/images/castle.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .col-1 {width: 8.33%;}

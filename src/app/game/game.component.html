@@ -1,40 +1,44 @@
-<md-grid-list cols="16" rowHeight="120px">
-  <md-grid-tile>1</md-grid-tile>
-  <md-grid-tile>2</md-grid-tile>
-  <md-grid-tile [colspan]="12">
-    <div class="card" *ngFor="let c of board.opponent.hand">
-      <img src="{{c.imagePath}}">
-    </div>
-  </md-grid-tile>
-  <md-grid-tile>4</md-grid-tile>
-  <md-grid-tile>5</md-grid-tile>
-  <md-grid-tile>6</md-grid-tile>
-  <md-grid-tile>7</md-grid-tile>
-  <md-grid-tile [colspan]="12">
-    <div class="card lessonInPlay" *ngFor="let c of board.opponent.lessonsInPlay">
-      <img src="{{c.imagePath}}">
-    </div>
-  </md-grid-tile>
-  <md-grid-tile>9</md-grid-tile>
-  <md-grid-tile>10</md-grid-tile>
-  <md-grid-tile>11</md-grid-tile>
-  <md-grid-tile>12</md-grid-tile>
-  <md-grid-tile [colspan]="12">
-    <div class="card lessonInPlay" *ngFor="let c of board.you.lessonsInPlay">
-      <img src="{{c.imagePath}}">
-    </div>
-  </md-grid-tile>
-  <md-grid-tile>14</md-grid-tile>
-  <md-grid-tile>15</md-grid-tile>
-  <md-grid-tile>16</md-grid-tile>
-  <md-grid-tile>17</md-grid-tile>
-  <md-grid-tile [colspan]="12">
-    <div class="card" *ngFor="let c of board.you.hand">
-      <img src="{{c.imagePath}}" (click)="c.clickInHand()">
-    </div>
-  </md-grid-tile>
-  <md-grid-tile>19</md-grid-tile>
-  <md-grid-tile>20</md-grid-tile>
-  <md-grid-tile>21</md-grid-tile>
+<div id="content">
+  <md-grid-list cols="16" rowHeight="170px">
+    <md-grid-tile>1</md-grid-tile>
+    <md-grid-tile>2</md-grid-tile>
+    <md-grid-tile [colspan]="12">
+      <div *ngFor="let c of board.opponent.hand">
+        <img class="card" src="{{c.imagePath}}">
+      </div>
+    </md-grid-tile>
+    <md-grid-tile>4</md-grid-tile>
+    <md-grid-tile>5</md-grid-tile>
+    <md-grid-tile>6</md-grid-tile>
+    <md-grid-tile>7</md-grid-tile>
+    <md-grid-tile [colspan]="12">
+      <div class="lessonInPlay" *ngFor="let c of board.opponent.lessonsInPlay">
+        <img class="card" src="{{c.imagePath}}">
+      </div>
+    </md-grid-tile>
+    <md-grid-tile>9</md-grid-tile>
+    <md-grid-tile>10</md-grid-tile>
+    <md-grid-tile>11</md-grid-tile>
+    <md-grid-tile>12</md-grid-tile>
+    <md-grid-tile [colspan]="12">
+      <div class="lessonInPlay" *ngFor="let c of board.you.lessonsInPlay">
+        <img class="card" src="{{c.imagePath}}">
+      </div>
+    </md-grid-tile>
+    <md-grid-tile>14</md-grid-tile>
+    <md-grid-tile>15</md-grid-tile>
+    <md-grid-tile>16</md-grid-tile>
+    <md-grid-tile>
+      <img class="card" src="assets/images/cardback.jpg" (click)="askDraw()">
+    </md-grid-tile>
+    <md-grid-tile [colspan]="12">
+      <div *ngFor="let c of board.you.hand">
+        <img class="card" src="{{c.imagePath}}" (click)="c.clickInHand()">
+      </div>
+    </md-grid-tile>
+    <md-grid-tile>19</md-grid-tile>
+    <md-grid-tile>20</md-grid-tile>
+    <md-grid-tile>21</md-grid-tile>
 
-</md-grid-list>
+  </md-grid-list>
+</div>

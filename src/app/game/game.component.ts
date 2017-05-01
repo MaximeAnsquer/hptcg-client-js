@@ -43,6 +43,10 @@ export class GameComponent implements OnInit {
     }
   }
 
+  askDraw():void {
+    this.messageService.messages.next({type: 'draw'});
+  }
+
   draw(message: any) {
     let cardName = message['cardName'];
     let cardId = message['cardId'];
