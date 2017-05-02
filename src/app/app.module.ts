@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {ToolTipModule} from 'angular2-tooltip'
 
 import { AppComponent } from './app.component';
 import {WebSocketService} from './shared/services/web-socket.service';
@@ -20,6 +21,7 @@ import { ChooseDeckComponent } from './choose-deck/choose-deck.component';
 import { AuthenticatedComponent } from './authenticated/authenticated.component';
 import {UsernameGuard} from "./username.guard";
 import {CardFactoryService} from "./card-factory.service";
+import { DiscardPileComponent } from './discard-pile/discard-pile.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +32,13 @@ import {CardFactoryService} from "./card-factory.service";
     SettingsComponent,
     GameComponent,
     ChooseDeckComponent,
-    AuthenticatedComponent
+    AuthenticatedComponent,
+    DiscardPileComponent
   ],
   entryComponents: [
     SettingsComponent,
-    ChooseDeckComponent
+    ChooseDeckComponent,
+    DiscardPileComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,8 @@ import {CardFactoryService} from "./card-factory.service";
     HttpModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ToolTipModule
   ],
   providers: [
     WebSocketService,
@@ -52,6 +57,6 @@ import {CardFactoryService} from "./card-factory.service";
     UsernameGuard,
     CardFactoryService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

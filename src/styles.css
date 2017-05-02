@@ -12,3 +12,12 @@
 }
 
 html, body { height: 100%; }
+
+.card {
+  display: block;
+  max-width:150px;
+  max-height:150px;
+  width: auto;
+  height: auto;
+  cursor : pointer;
+}

@@ -7,15 +7,6 @@ div {
   width: auto;
 }
 
-.card {
-  display: block;
-  max-width:150px;
-  max-height:150px;
-  width: auto;
-  height: auto;
-  cursor : pointer;
-}
-
 #opponent-side {
   position: absolute;
   top: 0;

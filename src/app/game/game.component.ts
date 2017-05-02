@@ -3,6 +3,8 @@ import {Board} from "../board";
 import {MessageService} from "../shared/services/message.service";
 import {CardFactoryService} from "../card-factory.service";
 import {Player} from "../player";
+import {MdDialog} from "@angular/material";
+import {DiscardPileComponent} from "../discard-pile/discard-pile.component";
 
 @Component({
   selector: 'app-game',
@@ -17,7 +19,8 @@ export class GameComponent implements OnInit {
 
   constructor(
     private messageService: MessageService,
-    private cardFactory: CardFactoryService) { }
+    private cardFactory: CardFactoryService,
+    private dialog: MdDialog) { }
 
   ngOnInit() {
     this.board = new Board();
@@ -66,6 +69,11 @@ export class GameComponent implements OnInit {
     let cardId = message['cardId'];
     let card = this.board.opponent.hand.find(c => c.id === cardId);
     card.opponentPlays();
+  }
+
+  showDiscardPile(player: Player): void {
+    let dialogRef = this.dialog.open(DiscardPileComponent);
+    dialogRef.componentInstance.cards = player.discardPile.cards;
   }
 
 }
