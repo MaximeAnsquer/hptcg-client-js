@@ -1,0 +1,99 @@
+<div id="content">
+  <md-grid-list cols="16" rowHeight="170px">
+
+    <!-- OPPONENT DISCARD PILE -->
+
+    <md-grid-tile [colspan]="2">
+      <img class="card"
+           (click)="showDiscardPile(opponent)"
+           *ngIf="opponent.topDiscardPile"
+           tooltip content="<img src='{{opponent.topDiscardPile.imagePath}}'>"
+           src="{{opponent.topDiscardPile.imagePath}}">
+    </md-grid-tile>
+
+    <!-- DECK -->
+
+    <md-grid-tile>
+      <img class="card" src="../../assets/images/cardback.jpg">
+    </md-grid-tile>
+
+    <!-- OPPONENT LESSONS -->
+
+    <md-grid-tile [colspan]="11">
+      <div class="lessonInPlay" *ngFor="let c of board.opponent.lessonsInPlay" tooltip content="<img src='{{c.imagePath}}'>">
+        <img class="card" src="{{c.imagePath}}">
+      </div>
+    </md-grid-tile>
+
+    <md-grid-tile>4</md-grid-tile>
+    <md-grid-tile>5</md-grid-tile>
+    <md-grid-tile [colspan]="2">6</md-grid-tile>
+    <md-grid-tile>7</md-grid-tile>
+
+    <!-- OPPONENT CARDS -->
+
+    <md-grid-tile [colspan]="11">
+      <div class="cardsInPlay" *ngFor="let c of board.opponent.cardsInPlay" tooltip content="<img src='{{c.imagePath}}'>">
+        <img class="card" src="{{c.imagePath}}">
+      </div>
+    </md-grid-tile>
+
+
+    <md-grid-tile>9</md-grid-tile>
+    <md-grid-tile>10</md-grid-tile>
+    <md-grid-tile [colspan]="2">11</md-grid-tile>
+    <md-grid-tile>11</md-grid-tile>
+
+    <!-- CARDS -->
+
+    <md-grid-tile [colspan]="11">
+      <div class="cardsInPlay" *ngFor="let c of board.you.cardsInPlay" tooltip content="<img src='{{c.imagePath}}'>">
+        <img class="card" src="{{c.imagePath}}">
+      </div>
+    </md-grid-tile>
+
+    <md-grid-tile>14</md-grid-tile>
+    <md-grid-tile>15</md-grid-tile>
+    <md-grid-tile [colspan]="2">16</md-grid-tile>
+    <md-grid-tile>17</md-grid-tile>
+
+    <!-- LESSONS IN PLAY -->
+
+    <md-grid-tile [colspan]="11">
+      <div class="lessonInPlay" *ngFor="let c of board.you.lessonsInPlay" tooltip content="<img src='{{c.imagePath}}'>">
+        <img class="card" src="{{c.imagePath}}">
+      </div>
+    </md-grid-tile>
+
+    <md-grid-tile>19</md-grid-tile>
+    <md-grid-tile>20</md-grid-tile>
+
+    <!-- DISCARD PILE -->
+
+    <md-grid-tile [colspan]="2">
+      <img class="card"
+           (click)="showDiscardPile(you)"
+           *ngIf="you.topDiscardPile"
+           tooltip content="<img src='{{you.topDiscardPile.imagePath}}'>"
+           src="{{you.topDiscardPile.imagePath}}">
+    </md-grid-tile>
+
+    <!-- DECK -->
+
+    <md-grid-tile>
+      <img class="card" src="assets/images/cardback.jpg" (click)="askDraw()">
+    </md-grid-tile>
+
+    <!-- HAND -->
+
+    <md-grid-tile [colspan]="11">
+      <div *ngFor="let c of board.you.hand" tooltip content="<img src='{{c.imagePath}}'>">
+        <img class="card" src="{{c.imagePath}}" (click)="c.clickInHand()">
+      </div>
+    </md-grid-tile>
+
+    <md-grid-tile>24</md-grid-tile>
+    <md-grid-tile>25</md-grid-tile>
+
+  </md-grid-list>
+</div>

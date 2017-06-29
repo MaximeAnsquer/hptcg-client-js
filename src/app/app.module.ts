@@ -22,6 +22,8 @@ import { AuthenticatedComponent } from './authenticated/authenticated.component'
 import {UsernameGuard} from "./username.guard";
 import {CardFactoryService} from "./card-factory.service";
 import { DiscardPileComponent } from './discard-pile/discard-pile.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {CustomMaterialModule} from './custom-material/custom-material.module';
 
 @NgModule({
   declarations: [
@@ -45,9 +47,10 @@ import { DiscardPileComponent } from './discard-pile/discard-pile.component';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    CustomMaterialModule,
     AppRoutingModule,
-    ToolTipModule
+    ToolTipModule,
+    FlexLayoutModule
   ],
   providers: [
     WebSocketService,
