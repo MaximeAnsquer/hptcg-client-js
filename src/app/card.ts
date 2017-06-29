@@ -10,6 +10,7 @@ export abstract class Card {
   imagePath: string;
   lessonType: LessonType;
   cost: number;
+  state = 'active';
 
   protected messageService: MessageService;
 
@@ -58,6 +59,14 @@ export abstract class Card {
 
   playEffect() {
 
+  }
+
+  toggleState() {
+    if (this.state === 'active') {
+      this.state = 'inactive';
+    } else {
+      this.state = 'active';
+    }
   }
 
 }

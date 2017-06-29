@@ -63,23 +63,23 @@
 /*}*/
 
 .opponent-cards-in-play {
-  background-color: #ff1706;
+  /*background-color: #ff1706;*/
 }
 
 .player-cards-in-play {
-  background-color: #3da51c;
+  /*background-color: #3da51c;*/
 }
 
 .player-hand {
-  background-color: #2c47a5;
+  /*background-color: #2c47a5;*/
 }
 
 .player-lessons-in-play {
-  background-color: #9ba50b;
+  /*background-color: #9ba50b;*/
 }
 
 .opponent-lessons-in-play {
-  background-color: black;
+  /*background-color: black;*/
 }
 
 .game-panel {

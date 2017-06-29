@@ -4,42 +4,42 @@
 
   <div class="center-panel" fxFlex="70" fxLayout="column">
 
-    <div class="opponent-lessons-in-play" fxLayout="row" fxLayoutAlign="space-around center">
+    <div class="opponent-lessons-in-play" fxLayout="row" fxLayoutAlign="space-around center" fxFlex="auto">
 
       <div class="lessonInPlay" *ngFor="let c of board.opponent.lessonsInPlay">
-        <img class="card" src="{{c.imagePath}}">
+        <card [card]="c"></card>
       </div>
 
     </div>
 
-    <div class="opponent-cards-in-play" fxLayout="row" fxLayoutAlign="space-around center">
+    <div class="opponent-cards-in-play" fxLayout="row" fxLayoutAlign="space-around center" fxFlex="auto">
 
       <div class="cardsInPlay" *ngFor="let c of board.opponent.cardsInPlay">
-        <img class="card" src="{{c.imagePath}}">
+        <card [card]="c"></card>
       </div>
 
     </div>
 
-    <div class="player-cards-in-play" fxLayout="row" fxLayoutAlign="space-around center">
+    <div class="player-cards-in-play" fxLayout="row" fxLayoutAlign="space-around center" fxFlex="auto">
 
-      <div class="cardsInPlay" *ngFor="let c of board.you.cardsInPlay" fxLayoutAlign="space-around center">
-        <img class="card" src="{{c.imagePath}}">
+      <div class="cardsInPlay" *ngFor="let c of board.you.cardsInPlay">
+        <card [card]="c"></card>
       </div>
 
     </div>
 
-    <div class="player-lessons-in-play" fxLayout="row" fxLayoutAlign="space-around center">
+    <div class="player-lessons-in-play" fxLayout="row" fxLayoutAlign="space-around center" fxFlex="auto">
 
       <div class="lessonInPlay" *ngFor="let c of board.you.lessonsInPlay">
-        <img class="card" src="{{c.imagePath}}">
+        <card [card]="c"></card>
       </div>
 
     </div>
 
-    <div class="player-hand" fxLayout="row" fxLayoutAlign="space-around center">
+    <div class="player-hand" fxLayout="row" fxLayoutAlign="space-around center" fxFlex="auto">
 
       <div *ngFor="let c of board.you.hand">
-        <img class="card" src="{{c.imagePath}}" (click)="c.clickInHand()">
+        <card [card]="c" (click)="c.clickInHand()"></card>
       </div>
 
     </div>

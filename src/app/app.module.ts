@@ -24,6 +24,7 @@ import {CardFactoryService} from "./card-factory.service";
 import { DiscardPileComponent } from './discard-pile/discard-pile.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {CustomMaterialModule} from './custom-material/custom-material.module';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {CustomMaterialModule} from './custom-material/custom-material.module';
     GameComponent,
     ChooseDeckComponent,
     AuthenticatedComponent,
-    DiscardPileComponent
+    DiscardPileComponent,
+    CardComponent
   ],
   entryComponents: [
     SettingsComponent,
