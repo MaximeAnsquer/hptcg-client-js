@@ -1,7 +1,7 @@
 import 'hammerjs';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {ToolTipModule} from 'angular2-tooltip'
 
@@ -25,6 +25,7 @@ import { DiscardPileComponent } from './discard-pile/discard-pile.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {CustomMaterialModule} from './custom-material/custom-material.module';
 import { CardComponent } from './card/card.component';
+import { DeckComponent } from './deck/deck.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CardComponent } from './card/card.component';
     ChooseDeckComponent,
     AuthenticatedComponent,
     DiscardPileComponent,
-    CardComponent
+    CardComponent,
+    DeckComponent
   ],
   entryComponents: [
     SettingsComponent,
@@ -47,6 +49,7 @@ import { CardComponent } from './card/card.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
     CustomMaterialModule,

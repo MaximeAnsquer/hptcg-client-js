@@ -1,6 +1,20 @@
 <div fxLayout="row" fxLayoutWrap class="game-panel">
 
-  <div class="left-panel" fxFlex="15"></div>
+  <!----- LEFT PANEL ----->
+
+  <div class="left-panel" fxFlex="15" fxLayout="column">
+
+    <div fxFlex="auto"></div>
+
+    <div fxFlex="auto"></div>
+
+    <div fxFlex="auto">
+      <deck></deck>
+    </div>
+
+  </div>
+
+  <!----- CENTER PANEL ----->
 
   <div class="center-panel" fxFlex="70" fxLayout="column">
 
@@ -36,7 +50,7 @@
 
     </div>
 
-    <div class="player-hand" fxLayout="row" fxLayoutAlign="space-around center" fxFlex="auto">
+    <div class="player-hand" fxLayout="row-reverse" fxLayoutAlign="space-around center" fxFlex="auto">
 
       <div *ngFor="let c of board.you.hand">
         <card [card]="c" (click)="c.clickInHand()"></card>

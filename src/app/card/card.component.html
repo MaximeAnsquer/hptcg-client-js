@@ -1,3 +1,3 @@
-<div class="cardsInPlay" [@cardState]="card.state">
+<div class="cardsInPlay" [@cardState]="card.state" (@cardState.done)="animationDone($event)">
   <img class="card" src="{{card.imagePath}}">
 </div>

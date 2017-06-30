@@ -2,6 +2,7 @@ import {MessageService} from "./shared/services/message.service";
 import {Injector} from "@angular/core";
 import {Player} from "./player";
 import {LessonType} from "./shared/model/lesson-type";
+
 export abstract class Card {
 
   player: Player;
@@ -10,7 +11,7 @@ export abstract class Card {
   imagePath: string;
   lessonType: LessonType;
   cost: number;
-  state = 'active';
+  state = 'inDeck';
 
   protected messageService: MessageService;
 
@@ -23,6 +24,7 @@ export abstract class Card {
   }
 
   play(): void {
+    this.state = 'inPlay';
     this.messageService.messages.next({
       type: 'play-card-from-hand',
       cardName: this.name,

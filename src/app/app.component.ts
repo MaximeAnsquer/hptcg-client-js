@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {UsernameService} from "./shared/services/username.service";
-import {MdDialog} from "@angular/material";
-import {SettingsComponent} from "./settings/settings.component";
 
 @Component({
   selector: 'app-root',
@@ -16,10 +14,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.username = this.usernameService.getUsername();
-    this.usernameService.username.subscribe(u => {
-      this.username = u;
-      console.log('username.subscribe: ' + u);
-    });
   }
 
 
