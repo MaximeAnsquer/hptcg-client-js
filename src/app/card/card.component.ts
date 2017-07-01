@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Card} from '../card';
 import {trigger, state, style, animate, transition} from '@angular/animations';
+import {MdDialog} from '@angular/material';
+import {CardZoomComponent} from '../card-zoom/card-zoom.component';
 
 @Component({
   selector: 'card',
@@ -33,7 +35,7 @@ export class CardComponent implements OnInit {
 
   @Input() card: Card;
 
-  constructor() {
+  constructor(private dialog: MdDialog) {
   }
 
   ngOnInit() {
@@ -41,6 +43,11 @@ export class CardComponent implements OnInit {
 
   animationDone(e: any) {
     console.log(e.fromState + ' => ' + e.toState);
+  }
+
+  zoom(): boolean {
+    this.dialog.open(CardZoomComponent, {data: this.card});
+    return false;
   }
 
 }

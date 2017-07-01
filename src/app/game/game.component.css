@@ -90,3 +90,7 @@
   /*border: 2px solid blue;*/
 /*}*/
 
+.md-dialog-container {
+  padding: 0 !important;
+}
+

@@ -26,6 +26,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {CustomMaterialModule} from './custom-material/custom-material.module';
 import { CardComponent } from './card/card.component';
 import { DeckComponent } from './deck/deck.component';
+import { CardZoomComponent } from './card-zoom/card-zoom.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +40,14 @@ import { DeckComponent } from './deck/deck.component';
     AuthenticatedComponent,
     DiscardPileComponent,
     CardComponent,
-    DeckComponent
+    DeckComponent,
+    CardZoomComponent
   ],
   entryComponents: [
     SettingsComponent,
     ChooseDeckComponent,
-    DiscardPileComponent
+    DiscardPileComponent,
+    CardZoomComponent
   ],
   imports: [
     BrowserModule,

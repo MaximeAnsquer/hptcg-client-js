@@ -50,11 +50,11 @@
 
     </div>
 
-    <div class="player-hand" fxLayout="row-reverse" fxLayoutAlign="space-around center" fxFlex="auto">
+    <div class="player-hand" fxLayout="row-reverse" fxLayoutAlign="space-around center">
 
-      <div *ngFor="let c of board.you.hand">
-        <card [card]="c" (click)="c.clickInHand()"></card>
-      </div>
+      <!--<card *ngFor="let c of board.you.hand" fxFlex="auto" [card]="c" (click)="c.clickInHand()"></card>-->
+
+      <card *ngFor="let c of board.you.cardsInHand2" fxFlex="auto" [card]="c" (click)="c.clickInHand()"></card>
 
     </div>
 

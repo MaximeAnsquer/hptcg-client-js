@@ -1,3 +1,4 @@
-<div class="cardsInPlay" [@cardState]="card.state" (@cardState.done)="animationDone($event)">
-  <img class="card" src="{{card.imagePath}}">
-</div>
+<img class="card" src="{{card.imagePath}}"
+     [@cardState]="card.state"
+     (@cardState.done)="animationDone($event)"
+     (contextmenu)="zoom()">

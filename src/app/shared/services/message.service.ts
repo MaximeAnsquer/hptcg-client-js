@@ -9,8 +9,8 @@ export class MessageService {
   public messages: Subject<any> = new Subject<any>();
 
   constructor(private wsService: WebSocketService) {
-    // let serverUrl = window.location.hostname === 'localhost' ? 'ws://localhost:5000' : 'ws://hptcg-server.herokuapp.com';
-    let serverUrl = 'ws://hptcg-server.herokuapp.com';
+    // let serverUrl = window.location.hostname === 'localhost' ? 'wss://localhost:5000' : 'wss://hptcg-server.herokuapp.com';
+    let serverUrl = 'wss://hptcg-server.herokuapp.com';
 
     this.messages = <Subject<any>> this.wsService
       .connect(serverUrl)

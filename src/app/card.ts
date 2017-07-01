@@ -2,6 +2,8 @@ import {MessageService} from "./shared/services/message.service";
 import {Injector} from "@angular/core";
 import {Player} from "./player";
 import {LessonType} from "./shared/model/lesson-type";
+import {CardState} from './card-state.enum';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 export abstract class Card {
 
@@ -12,6 +14,7 @@ export abstract class Card {
   lessonType: LessonType;
   cost: number;
   state = 'inDeck';
+  state2 = new BehaviorSubject(CardState.inDeck);
 
   protected messageService: MessageService;
 
@@ -21,10 +24,13 @@ export abstract class Card {
     this.player = player;
     this.imagePath = "assets/images/" + this.constructor.name + ".jpg";
     this.name = this.constructor.name;
+
+    this.state2.asObservable().subscribe(() => this.updatePlayerCards());
   }
 
   play(): void {
     this.state = 'inPlay';
+    this.state2.next(CardState.inPlay);
     this.messageService.messages.next({
       type: 'play-card-from-hand',
       cardName: this.name,
@@ -69,6 +75,10 @@ export abstract class Card {
     } else {
       this.state = 'active';
     }
+  }
+
+  updatePlayerCards() {
+    this.player.cards.next(this.player.cards.getValue());
   }
 
 }
