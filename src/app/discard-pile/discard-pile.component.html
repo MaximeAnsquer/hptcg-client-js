@@ -1,3 +1,1 @@
-<div id="content">
-  <img  *ngFor="let card of cards" src="{{card?.imagePath}}">
-</div>
+<card *ngIf="topCard" [card]="topCard"></card>

@@ -34,7 +34,7 @@ export class Creature extends Card {
           .find(l => l.lessonType === LessonType.CareOfMagicalCreatures);
         this.player.lessonsInPlay = this.player.lessonsInPlay
           .filter(l => l !== lesson);
-        this.player.discardPile.add(lesson);
+        // this.player.discardPile.add(lesson);
       }
     }
     this.player.cardsInPlay.push(this);

@@ -13,8 +13,8 @@ export abstract class Card {
   imagePath: string;
   lessonType: LessonType;
   cost: number;
-  state = 'inDeck';
-  state2 = new BehaviorSubject(CardState.inDeck);
+  flatState = 'inDeck';
+  state = new BehaviorSubject(CardState.inDeck);
 
   protected messageService: MessageService;
 
@@ -25,18 +25,22 @@ export abstract class Card {
     this.imagePath = "assets/images/" + this.constructor.name + ".jpg";
     this.name = this.constructor.name;
 
-    this.state2.asObservable().subscribe(() => this.updatePlayerCards());
+    this.state.asObservable().subscribe(newState => {
+      this.updatePlayerCards();
+      this.flatState = newState.toString();
+    });
   }
 
   play(): void {
-    this.state = 'inPlay';
-    this.state2.next(CardState.inPlay);
+    this.state.next(CardState.inPlay);
+
     this.messageService.messages.next({
       type: 'play-card-from-hand',
       cardName: this.name,
       cardId: this.id
     });
-    this.player.hand = this.player.hand.filter(c => c !== this);
+
+    // this.player.hand = this.player.hand.filter(c => c !== this);
     this.playEffect();
   }
 
@@ -70,15 +74,19 @@ export abstract class Card {
   }
 
   toggleState() {
-    if (this.state === 'active') {
-      this.state = 'inactive';
+    if (this.flatState === 'active') {
+      this.flatState = 'inactive';
     } else {
-      this.state = 'active';
+      this.flatState = 'active';
     }
   }
 
   updatePlayerCards() {
     this.player.cards.next(this.player.cards.getValue());
+  }
+
+  discard() {
+    this.state.next(CardState.inDiscardPile);
   }
 
 }

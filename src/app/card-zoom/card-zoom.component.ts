@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MD_DIALOG_DATA} from '@angular/material';
+import {MD_DIALOG_DATA, MdDialogRef} from '@angular/material';
 import {Card} from '../card';
 
 @Component({
@@ -10,10 +10,14 @@ import {Card} from '../card';
 export class CardZoomComponent implements OnInit {
 
 
-  constructor(@Inject(MD_DIALOG_DATA) private card: Card) {
+  constructor(@Inject(MD_DIALOG_DATA) private card: Card, private dialogRef: MdDialogRef<CardZoomComponent>) {
   }
 
   ngOnInit() {
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 
 }

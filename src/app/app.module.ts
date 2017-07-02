@@ -11,7 +11,7 @@ import { FakeComponentComponent } from './fake-component/fake-component.componen
 import {MessageService} from './shared/services/message.service';
 import { GameListComponent } from './game-list/game-list.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MaterialModule, MdDialog} from "@angular/material";
+import {MdDialog} from "@angular/material";
 import {UsernameService} from "./shared/services/username.service";
 import { UsernameFormComponent } from './username-form/username-form.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -21,12 +21,12 @@ import { ChooseDeckComponent } from './choose-deck/choose-deck.component';
 import { AuthenticatedComponent } from './authenticated/authenticated.component';
 import {UsernameGuard} from "./username.guard";
 import {CardFactoryService} from "./card-factory.service";
-import { DiscardPileComponent } from './discard-pile/discard-pile.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {CustomMaterialModule} from './custom-material/custom-material.module';
 import { CardComponent } from './card/card.component';
 import { DeckComponent } from './deck/deck.component';
 import { CardZoomComponent } from './card-zoom/card-zoom.component';
+import {DiscardPileComponent} from './discard-pile/discard-pile.component';
 
 @NgModule({
   declarations: [

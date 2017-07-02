@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DiscardPileComponent } from './discard-pile.component';
+import { DiscardPileComponent } from './discard-pile-zoom.component';
 
 describe('DiscardPileComponent', () => {
   let component: DiscardPileComponent;
@@ -19,7 +19,7 @@ describe('DiscardPileComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should be created', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });
