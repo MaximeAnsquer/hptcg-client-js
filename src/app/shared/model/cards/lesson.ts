@@ -1,9 +1,8 @@
 import {Card} from "../../../card";
-import {Board} from "../../../board";
-import {MessageService} from "../../services/message.service";
 import {Injector} from "@angular/core";
 import {Player} from "../../../player";
 import {LessonType} from "../lesson-type";
+import {CardState} from '../../../card-state.enum';
 export abstract class Lesson extends Card {
 
   lessonType: LessonType;
@@ -13,7 +12,7 @@ export abstract class Lesson extends Card {
   }
 
   playEffect() {
-    this.player.lessonsInPlay.push(this);
+    this.state.next(CardState.inLessonZone);
   }
 
 }

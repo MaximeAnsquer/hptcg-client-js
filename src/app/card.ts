@@ -4,6 +4,7 @@ import {Player} from "./player";
 import {LessonType} from "./shared/model/lesson-type";
 import {CardState} from './card-state.enum';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {FadingStatus} from './fading-status.enum';
 
 export abstract class Card {
 
@@ -15,6 +16,8 @@ export abstract class Card {
   cost: number;
   flatState = 'inDeck';
   state = new BehaviorSubject(CardState.inDeck);
+  flatFadingStatus: string = FadingStatus.neutral.toString();
+  fadingStatus = new BehaviorSubject(FadingStatus.neutral);
 
   protected messageService: MessageService;
 
@@ -29,10 +32,14 @@ export abstract class Card {
       this.updatePlayerCards();
       this.flatState = newState.toString();
     });
+
+    this.fadingStatus.asObservable().subscribe(newFadingStatus => {
+      this.flatFadingStatus = newFadingStatus.toString();
+    });
   }
 
   play(): void {
-    this.state.next(CardState.inPlay);
+    // this.state.next(CardState.inPlay);
 
     this.messageService.messages.next({
       type: 'play-card-from-hand',
@@ -45,15 +52,15 @@ export abstract class Card {
   }
 
   opponentPlays(): void {
-    this.player.hand = this.player.hand.filter(c => c !== this);
+    // this.player.hand = this.player.hand.filter(c => c !== this);
     this.playEffect();
   }
 
   lessonConditionOk(): boolean {
     if (this.cost) {
-      let lessonTypeOk = this.player.lessonsInPlay
+      let lessonTypeOk = this.player.cardsInLessonZone
         .some(l => l.lessonType === this.lessonType);
-      let costOk = this.player.lessonsInPlay.length >= this.cost;
+      let costOk = this.player.cardsInLessonZone.length >= this.cost;
       return lessonTypeOk && costOk;
     }
     return true;

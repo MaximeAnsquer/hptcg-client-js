@@ -13,8 +13,8 @@ export class DeckComponent implements OnInit {
   ngOnInit() {
   }
 
-  askForDraw(): void {
-    this.messageService.messages.next({type: 'draw'});
-  }
+  // askForDraw(): void {
+  //   this.messageService.messages.next({type: 'draw'});
+  // }
 
 }

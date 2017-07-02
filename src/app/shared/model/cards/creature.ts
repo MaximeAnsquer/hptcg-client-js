@@ -1,7 +1,7 @@
-import {Card} from "../../../card";
-import {Injector} from "@angular/core";
-import {Player} from "../../../player";
-import {LessonType} from "../lesson-type";
+import {Card} from '../../../card';
+import {Injector} from '@angular/core';
+import {Player} from '../../../player';
+import {LessonType} from '../lesson-type';
 
 export class Creature extends Card {
 
@@ -20,24 +20,23 @@ export class Creature extends Card {
 
   canBePlayed(): boolean {
     if (this.lessonsToDiscard) {
-      let hasEnoughCareOfMagicalCreatures = this.player.lessonsInPlay
-        .filter(l => l.lessonType === LessonType.CareOfMagicalCreatures).length >= this.lessonsToDiscard;
-      return hasEnoughCareOfMagicalCreatures && this.lessonConditionOk();
+      let canDiscard = this.player.cardsInLessonZone
+          .filter(l => l.lessonType === LessonType.CareOfMagicalCreatures)
+          .length >= this.lessonsToDiscard;
+      return canDiscard && this.lessonConditionOk();
     }
     return this.lessonConditionOk();
   }
 
   playEffect(): void {
     if (this.lessonsToDiscard) {
-      for (let i = 0; i < this.lessonsToDiscard ; i++) {
-        let lesson = this.player.lessonsInPlay
+      for (let i = 0; i < this.lessonsToDiscard; i++) {
+        let lesson = this.player.cardsInLessonZone
           .find(l => l.lessonType === LessonType.CareOfMagicalCreatures);
-        this.player.lessonsInPlay = this.player.lessonsInPlay
-          .filter(l => l !== lesson);
-        // this.player.discardPile.add(lesson);
+        lesson.discard();
       }
     }
-    this.player.cardsInPlay.push(this);
+    // this.player.cardsInPlay.push(this);
   }
 
 }

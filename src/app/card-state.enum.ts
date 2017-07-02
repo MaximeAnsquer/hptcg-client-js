@@ -1,9 +1,9 @@
 export enum CardState {
-  inDiscardPile,
-  zoomBeforePlay,
-  inOpponentHand,
-  inDeck,
-  inHand,
-  inPlay,
-  inLessonZone
+  inDiscardPile = <any> 'inDiscardPile',
+  zoomBeforePlay = <any> 'zoomBeforePlay',
+  inOpponentHand = <any> 'inOpponentHand',
+  inDeck = <any> 'inDeck',
+  inHand = <any> 'inHand',
+  inPlay = <any> 'inPlay',
+  inLessonZone = <any> 'inLessonZone',
 }

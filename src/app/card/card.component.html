@@ -1,5 +1,7 @@
 <img class="card" src="{{card.imagePath}}"
      [@cardState]="card.flatState"
+     [@fadingStatus]="card.flatFadingStatus"
      (@cardState.done)="animationDone($event)"
+     (@fadingStatus.done)="animationDone($event)"
      (contextmenu)="zoom()"
 (wheel)="zoom()">

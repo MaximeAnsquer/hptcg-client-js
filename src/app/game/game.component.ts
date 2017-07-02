@@ -27,6 +27,8 @@ export class GameComponent implements OnInit {
     this.board = new Board();
     this.you = this.board.you;
     this.opponent = this.board.opponent;
+    this.you.messageService = this.messageService;
+    this.you.opponent.messageService = this.messageService;
     this.messageService.messages.subscribe(message => this.handleMessage(message));
     this.messageService.messages.next({type: 'draw-hand'});
   }
@@ -56,21 +58,20 @@ export class GameComponent implements OnInit {
     this.board.you.hand.push(card);
 
     this.board.you.addCard(card, CardState.inHand);
-
   }
 
   opponentDraws(message: any) {
     let cardName = message['cardName'];
     let cardId = message['cardId'];
     let card = this.cardFactory.create(cardName, cardId, this.opponent);
-    card.state.next(CardState.inOpponentHand);
-    this.board.opponent.hand.push(card);
+    this.board.opponent.addCard(card, CardState.inHand);
+    // this.board.opponent.hand.push(card);
   }
 
   opponentPlaysCardFromHand(message: any) {
     let cardName = message['cardName'];
     let cardId = message['cardId'];
-    let card = this.board.opponent.hand.find(c => c.id === cardId);
+    let card = this.board.opponent.cards.getValue().find(c => c.id === cardId);
     card.opponentPlays();
   }
 

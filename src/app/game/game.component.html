@@ -9,7 +9,7 @@
     <div fxFlex="auto"></div>
 
     <div fxFlex="auto">
-      <deck></deck>
+      <deck (click)="board.you.askServerForDraw()"></deck>
       <discard-pile [player]="board.you"></discard-pile>
     </div>
 
@@ -19,9 +19,15 @@
 
   <div class="center-panel" fxFlex="70" fxLayout="column">
 
+    <div class="opponent-hand" fxLayout="row" fxLayoutAlign="space-around center" fxFlex="auto">
+
+      <card *ngFor="let c of board.opponent.cardsInHand" fxFlex="auto" [card]="c"></card>
+
+    </div>
+
     <div class="opponent-lessons-in-play" fxLayout="row" fxLayoutAlign="space-around center" fxFlex="auto">
 
-      <div class="lessonInPlay" *ngFor="let c of board.opponent.lessonsInPlay">
+      <div class="lessonInPlay" *ngFor="let c of board.opponent.cardsInLessonZone">
         <card [card]="c"></card>
       </div>
 
@@ -45,7 +51,7 @@
 
     <div class="player-lessons-in-play" fxLayout="row" fxLayoutAlign="space-around center" fxFlex="auto">
 
-      <div class="lessonInPlay" *ngFor="let c of board.you.lessonsInPlay">
+      <div class="lessonInPlay" *ngFor="let c of board.you.cardsInLessonZone">
         <card [card]="c"></card>
       </div>
 
@@ -55,7 +61,7 @@
 
       <!--<card *ngFor="let c of board.you.hand" fxFlex="auto" [card]="c" (click)="c.clickInHand()"></card>-->
 
-      <card *ngFor="let c of board.you.cardsInHand2" fxFlex="auto" [card]="c" (click)="c.clickInHand()"></card>
+      <card *ngFor="let c of board.you.cardsInHand" fxFlex="auto" [card]="c" (click)="c.clickInHand()"></card>
 
     </div>
 

@@ -10,11 +10,11 @@ export class Avifors extends Spell {
     super(player, id, injector, LessonType.Transfiguration, 2, injector.get(MdDialog));
   }
 
-  canBePlayed(): boolean {
-    let opponentHasCareOfMagicalCreatures = this.player.opponent.lessonsInPlay
-      .some(l => l.lessonType === LessonType.CareOfMagicalCreatures);
-    return opponentHasCareOfMagicalCreatures && super.canBePlayed();
-  }
+  // canBePlayed(): boolean {
+  //   let opponentHasCareOfMagicalCreatures = this.player.opponent.lessonsInPlay
+  //     .some(l => l.lessonType === LessonType.CareOfMagicalCreatures);
+  //   return opponentHasCareOfMagicalCreatures && super.canBePlayed();
+  // }
 
   playEffect() {
     // let careOfMagicalCreaturesToRemove = this.player.opponent.lessonsInPlay

@@ -1,21 +1,23 @@
 import {Card} from "./card";
 import {Board} from "./board";
 import {Lesson} from "app/shared/model/cards/lesson";
-import {DiscardPile} from "./shared/model/discard-pile";
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {CardState} from './card-state.enum';
+import {MessageService} from './shared/services/message.service';
 export class Player {
 
   cards: BehaviorSubject<Card[]>;
-  lessonsInPlay: Lesson[] = [];
+  // lessonsInPlay: Lesson[] = [];
   hand: Card[] = [];
   cardsInPlay: Card[] = [];
-  cardsInHand2: Card[];
+  cardsInHand: Card[];
   board: Board;
   opponent: Player;
   // discardPile: DiscardPile = new DiscardPile();
   cardsInDiscardPile: Card[];
   topDiscardPile: Card;
+  cardsInLessonZone: Card[];
+  messageService: MessageService;
 
   constructor(board: Board) {
     this.board = board;
@@ -25,11 +27,12 @@ export class Player {
 
     // this.discardPile.subscribe(c => this.topDiscardPile = c);
 
-    // this.cardsInHand2 = this.cards.asObservable()
+    // this.cardsInHand = this.cards.asObservable()
     //   .map(() => this.cards.value.filter(c => c.state === CardState.inHand));
 
     this.cards.asObservable().subscribe(cards => {
-        this.cardsInHand2 = cards.filter((c: Card) => c.state.getValue() === CardState.inHand);
+        this.cardsInHand = cards.filter((c: Card) => c.state.getValue() === CardState.inHand);
+        this.cardsInLessonZone = cards.filter((c: Card) => c.state.getValue() === CardState.inLessonZone);
         this.cardsInDiscardPile = cards.filter((c: Card) => c.state.getValue() === CardState.inDiscardPile);
       });
 
@@ -43,6 +46,10 @@ export class Player {
 
   getCardsInDiscardPile(): Card[] {
     return this.cards.getValue().filter((c: Card) => c.state.getValue() === CardState.inDiscardPile);
+  }
+
+  askServerForDraw(): void {
+    this.messageService.messages.next({ type: 'draw' });
   }
 
 }
