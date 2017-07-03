@@ -1,8 +1,9 @@
-import {Spell} from "./spell";
-import {LessonType} from "../lesson-type";
-import {Injector} from "@angular/core";
-import {Player} from "../../../player";
+import {Spell} from './spell';
+import {LessonType} from '../lesson-type';
+import {Injector} from '@angular/core';
+import {Player} from '../../../player';
 import {MdDialog} from '@angular/material';
+import {CardState} from '../../../card-state.enum';
 
 export class Avifors extends Spell {
 
@@ -10,18 +11,16 @@ export class Avifors extends Spell {
     super(player, id, injector, LessonType.Transfiguration, 2, injector.get(MdDialog));
   }
 
-  // canBePlayed(): boolean {
-  //   let opponentHasCareOfMagicalCreatures = this.player.opponent.lessonsInPlay
-  //     .some(l => l.lessonType === LessonType.CareOfMagicalCreatures);
-  //   return opponentHasCareOfMagicalCreatures && super.canBePlayed();
-  // }
+  canBePlayed(): boolean {
+    let opponentHasCareOfMagicalCreatures = this.player.opponent.cardsInLessonZone
+      .some(l => l.lessonType === LessonType.CareOfMagicalCreatures);
+    return opponentHasCareOfMagicalCreatures && super.canBePlayed();
+  }
 
   playEffect() {
-    // let careOfMagicalCreaturesToRemove = this.player.opponent.lessonsInPlay
-    //   .find(l => l.lessonType === LessonType.CareOfMagicalCreatures);
-    // this.player.opponent.discardPile.add(careOfMagicalCreaturesToRemove);
-    // this.player.opponent.lessonsInPlay = this.player.opponent.lessonsInPlay
-    //   .filter(l => l !== careOfMagicalCreaturesToRemove);
+    this.player.opponent.cardsInLessonZone
+      .find(l => l.lessonType === LessonType.CareOfMagicalCreatures)
+      .discard();
   }
 
 }

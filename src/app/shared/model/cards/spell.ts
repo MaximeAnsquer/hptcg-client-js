@@ -8,14 +8,14 @@ import {CardZoomComponent} from '../../../card-zoom/card-zoom.component';
 
 export class Spell extends Card {
 
-  constructor(player: Player, id: number, injector: Injector, lessonType: LessonType, cost: number, private dialog: MdDialog) {
+  constructor(player: Player, id: number, injector: Injector, lessonType: LessonType, cost: number, dialog: MdDialog) {
     super(player, id, injector);
     this.lessonType = lessonType;
     this.cost = cost;
 
-    this.state.asObservable().subscribe(newState => {
-      this.checkZoomBeforePlay(newState);
-    })
+    // this.state.asObservable().subscribe(newState => {
+    //   this.checkZoomBeforePlay(newState);
+    // })
   }
 
   private checkZoomBeforePlay(newState: CardState) {
@@ -34,14 +34,24 @@ export class Spell extends Card {
   }
 
   play(): void {
-    this.state.next(CardState.zoomBeforePlay);
-    // this.player.discardPile.add(this);
+    super.play();
+    // this.state.next(CardState.zoomBeforePlay);
     // super.play();
+    // this.player.discardPile.add(this);
   }
 
   opponentPlays(): any {
     // this.player.discardPile.add(this);
+    // this.zoomTwoSeconds().then(() => {
+    //   this.zoomDialogRef.close();
+    // });
     super.opponentPlays();
+  }
+
+
+  beforePlayEffect() {
+    super.beforePlayEffect();
+    this.zoomTwoSeconds();
   }
 
 }

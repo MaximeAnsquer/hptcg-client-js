@@ -1,10 +1,12 @@
-import {MessageService} from "./shared/services/message.service";
-import {Injector} from "@angular/core";
-import {Player} from "./player";
-import {LessonType} from "./shared/model/lesson-type";
+import {MessageService} from './shared/services/message.service';
+import {Injector} from '@angular/core';
+import {Player} from './player';
+import {LessonType} from './shared/model/lesson-type';
 import {CardState} from './card-state.enum';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {FadingStatus} from './fading-status.enum';
+import {MdDialog, MdDialogRef} from '@angular/material';
+import {CardZoomComponent} from './card-zoom/card-zoom.component';
 
 export abstract class Card {
 
@@ -21,11 +23,15 @@ export abstract class Card {
 
   protected messageService: MessageService;
 
+  zoomDialogRef: MdDialogRef<CardZoomComponent>;
+  dialog: MdDialog;
+
   constructor(player: Player, id: number, injector: Injector) {
     this.messageService = injector.get(MessageService);
+    this.dialog = injector.get(MdDialog);
     this.id = id;
     this.player = player;
-    this.imagePath = "assets/images/" + this.constructor.name + ".jpg";
+    this.imagePath = 'assets/images/' + this.constructor.name + '.jpg';
     this.name = this.constructor.name;
 
     this.state.asObservable().subscribe(newState => {
@@ -40,12 +46,7 @@ export abstract class Card {
 
   play(): void {
     // this.state.next(CardState.inPlay);
-
-    this.messageService.messages.next({
-      type: 'play-card-from-hand',
-      cardName: this.name,
-      cardId: this.id
-    });
+    this.beforePlayEffect();
 
     // this.player.hand = this.player.hand.filter(c => c !== this);
     this.playEffect();
@@ -53,7 +54,7 @@ export abstract class Card {
 
   opponentPlays(): void {
     // this.player.hand = this.player.hand.filter(c => c !== this);
-    this.playEffect();
+    // this.playEffect();
   }
 
   lessonConditionOk(): boolean {
@@ -72,6 +73,7 @@ export abstract class Card {
 
   clickInHand(): void {
     if (this.canBePlayed()) {
+      this.declarePlayToOpponent();
       this.play();
     }
   }
@@ -94,6 +96,24 @@ export abstract class Card {
 
   discard() {
     this.state.next(CardState.inDiscardPile);
+  }
+
+  zoomTwoSeconds(): void {
+    this.state.next(CardState.zoomBeforePlay);
+    this.zoomDialogRef = this.dialog.open(CardZoomComponent, {data: this, disableClose: true});
+    setTimeout(() => this.zoomDialogRef.close(), 2000);
+  }
+
+  beforePlayEffect() {
+
+  }
+
+  private declarePlayToOpponent() {
+    this.messageService.messages.next({
+      type: 'play-card-from-hand',
+      cardName: this.name,
+      cardId: this.id
+    });
   }
 
 }

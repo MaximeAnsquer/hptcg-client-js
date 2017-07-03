@@ -72,7 +72,7 @@ export class GameComponent implements OnInit {
     let cardName = message['cardName'];
     let cardId = message['cardId'];
     let card = this.board.opponent.cards.getValue().find(c => c.id === cardId);
-    card.opponentPlays();
+    card.play();
   }
 
   showDiscardPile(player: Player): void {
